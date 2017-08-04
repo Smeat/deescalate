@@ -9,12 +9,12 @@ class C(object):
     """
     #: List of usual capabilities on Linux
     HARD_CODED_CAPS = [
-        b'chown', b'dac_override', b'dac_read_search', b'fowner', b'fsetid', b'kill', b'setgid',
-        b'setuid', b'setpcap', b'linux_immutable', b'net_bind_service', b'net_broadcast', b'net_admin',
-        b'net_raw', b'ipc_lock', b'ipc_owner', b'sys_module', b'sys_rawio', b'sys_chroot', b'sys_ptrace',
-        b'sys_pacct', b'sys_admin', b'sys_boot', b'sys_nice', b'sys_resource', b'sys_time', b'sys_tty_config',
-        b'mknod', b'lease', b'audit_write', b'audit_control', b'setfcap', b'mac_override', b'mac_admin',
-        b'syslog', b'wake_alarm', b'block_suspend'
+        'chown', 'dac_override', 'dac_read_search', 'fowner', 'fsetid', 'kill', 'setgid',
+        'setuid', 'setpcap', 'linux_immutable', 'net_bind_service', 'net_broadcast', 'net_admin',
+        'net_raw', 'ipc_lock', 'ipc_owner', 'sys_module', 'sys_rawio', 'sys_chroot', 'sys_ptrace',
+        'sys_pacct', 'sys_admin', 'sys_boot', 'sys_nice', 'sys_resource', 'sys_time', 'sys_tty_config',
+        'mknod', 'lease', 'audit_write', 'audit_control', 'setfcap', 'mac_override', 'mac_admin',
+        'syslog', 'wake_alarm', 'block_suspend'
     ]
 
     #: number of caps in HARD_CODED_CAPS
@@ -42,7 +42,7 @@ class C(object):
     SUPPORTED_CAPS_VALUES = set()
 
     # type of capability sets
-    FLAGS = {b'permitted': 1, b'inheritable': 2, b'effective': 0}
+    FLAGS = {'permitted': 1, 'inheritable': 2, 'effective': 0}
     # possible values for each capability
-    FLAG_VALUES = {b'clear': 0, b'set': 1}
+    FLAG_VALUES = {'clear': 0, 'set': 1}
     PRCTL = {}

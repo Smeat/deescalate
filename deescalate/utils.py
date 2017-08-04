@@ -4,18 +4,18 @@ __author__ = 'stef'
 
 import pwd
 import grp
-from constants import C
+from .constants import C
 
 
 def normalize_list_of_caps(list_of_caps):
     if list_of_caps is None:
         return set()
-    if isinstance(list_of_caps, basestring):
+    if isinstance(list_of_caps, str):
         list_of_caps = list_of_caps.lower().strip()
         if not list_of_caps:
             return set()
         list_of_caps = list_of_caps.split(',')
-    list_of_caps = {cap.encode('ascii') if isinstance(cap, unicode) else cap for cap in list_of_caps}
+    list_of_caps = {cap.encode('ascii') if isinstance(cap, str) else cap for cap in list_of_caps}
     list_of_caps = {cap.lower().strip() if isinstance(cap, bytes) else cap for cap in list_of_caps}
     list_of_caps = {C.SUPPORTED_CAPS.get(cap) if isinstance(cap, bytes) else cap for cap in list_of_caps}
     list_of_caps = {None if isinstance(cap, int) and cap not in C.SUPPORTED_CAPS_VALUES else cap for cap in list_of_caps}
@@ -38,11 +38,11 @@ def normalize_gid(uid, gid):
 
 def capset_string_to_flag(capset):
     if isinstance(capset, int):
-        if capset in C.FLAGS.values():
+        if capset in list(C.FLAGS.values()):
             return capset
         else:
             raise ValueError()
-    if isinstance(capset, unicode):
+    if isinstance(capset, str):
         return C.FLAGS[capset.encode('ascii').lower().strip()]
     if isinstance(capset, bytes):
         return C.FLAGS[capset.lower().strip()]
