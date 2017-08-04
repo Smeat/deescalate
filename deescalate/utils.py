@@ -24,12 +24,12 @@ def normalize_list_of_caps(list_of_caps):
 
 
 def normalize_uid(uid):
-    return uid if isinstance(uid, int) else pwd.getpwnam(bytes(uid)).pw_uid
+    return uid if isinstance(uid, int) else pwd.getpwnam(uid).pw_uid
 
 
 def normalize_gid(uid, gid):
     if gid is not None:
-        return gid if isinstance(gid, int) else grp.getgrnam(bytes(gid)).gr_gid
+        return gid if isinstance(gid, int) else grp.getgrnam(gid).gr_gid
     elif isinstance(uid, int):
         return pwd.getpwuid(uid).pw_gid
     else:

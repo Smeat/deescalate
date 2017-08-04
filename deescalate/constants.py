@@ -45,4 +45,4 @@ class C(object):
     FLAGS = {'permitted': 1, 'inheritable': 2, 'effective': 0}
     # possible values for each capability
     FLAG_VALUES = {'clear': 0, 'set': 1}
-    PRCTL = {}
+    PRCTL = { 'get_securebits': 27, 'set_securebits': 28, 'set_no_new_privs': 38, 'get_no_new_privs': 39 }
